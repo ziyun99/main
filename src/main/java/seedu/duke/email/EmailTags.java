@@ -1,6 +1,7 @@
-package seedu.duke.email.entity;
+package seedu.duke.email;
 
 import seedu.duke.email.EmailList;
+import seedu.duke.email.entity.Email;
 
 import java.util.ArrayList;
 import java.util.HashMap;

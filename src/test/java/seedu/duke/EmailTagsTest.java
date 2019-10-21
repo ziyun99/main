@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import seedu.duke.email.EmailList;
 import seedu.duke.email.EmailStorage;
-import seedu.duke.email.entity.EmailTags;
+import seedu.duke.email.EmailTags;
 
 import java.util.HashMap;
 
