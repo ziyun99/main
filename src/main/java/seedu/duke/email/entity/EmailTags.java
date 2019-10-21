@@ -5,11 +5,15 @@ import seedu.duke.email.EmailList;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class emailTags {
+public class EmailTags {
 
     HashMap<String, SubTagMap> tagMap = new HashMap<>();
 
-    public void updateEmailTagList(EmailList emailList) {
+    public EmailTags() {
+        tagMap = new HashMap<>();
+    }
+
+    public HashMap<String, SubTagMap> updateEmailTagList(EmailList emailList) {
         for (Email email : emailList) {
             ArrayList<Email.Tag> tags = email.getTags();
             for (Email.Tag rootTag : tags) {
@@ -35,8 +39,8 @@ public class emailTags {
                 }
             }
         }
+        return tagMap;
     }
-
 
     public static class SubTagMap extends HashMap<String, EmailList> {
 

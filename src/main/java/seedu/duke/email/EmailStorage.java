@@ -248,7 +248,8 @@ public class EmailStorage {
                 }
                 emailList.add(fileEmail);
             }
-            Duke.getUI().showMessage("Saved email file successfully loaded...");
+            System.out.println("Saved email file successfully loaded...");
+            //Duke.getUI().showMessage("Saved email file successfully loaded...");
             indexIn.close();
         } catch (FileNotFoundException e) {
             // It is acceptable if there is no save file. Empty list returned
