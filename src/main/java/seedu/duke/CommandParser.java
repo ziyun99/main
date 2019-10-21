@@ -1,6 +1,7 @@
 package seedu.duke;
 
 import seedu.duke.common.command.HelpCommand;
+import seedu.duke.email.command.EmailListTagCommand;
 import seedu.duke.email.command.EmailTagCommand;
 import seedu.duke.task.TaskList;
 import seedu.duke.task.command.TaskAddCommand;
@@ -212,7 +213,7 @@ public class CommandParser {
         case "help":
             return new HelpCommand();
         case "list":
-            return new EmailListCommand(emailList);
+            return parseEmailListCommand(emailList, optionList, input);
         case "show":
             return parseShowEmailCommand(emailList, input);
         case "fetch":
@@ -223,6 +224,19 @@ public class CommandParser {
             throw new CommandParser.UserInputException("OOPS!!! Enter \'email help\' to get list of methods for "
                     + "email.");
         }
+    }
+
+    private static Command parseEmailListCommand(EmailList emailList, ArrayList<Option> optionList, String input) {
+        System.out.println(optionList);
+        if(optionList.size() == 0) {
+            return new EmailListCommand(emailList);
+        }
+        ArrayList<String> tags = extractTags(optionList);
+        if (tags.size() == 0) {
+            ui.showError("Please enter a tag name after \'-tag\' option");
+            return new InvalidCommand();
+        }
+        return new EmailListTagCommand(emailList, tags);
     }
 
 

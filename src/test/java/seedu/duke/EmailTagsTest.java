@@ -17,8 +17,7 @@ public class EmailTagsTest {
         EmailList emailList = EmailStorage.readEmailFromFile();
         System.out.println(emailList.toString());
 
-        EmailTags emailTags = new EmailTags();
-        HashMap<String, EmailTags.SubTagMap> tagMap = emailTags.updateEmailTagList(emailList);
+        HashMap<String, EmailTags.SubTagMap> tagMap = EmailTags.updateEmailTagList(emailList);
         System.out.println(tagMap);
 
         assertTrue(tagMap.containsKey("SEP"));

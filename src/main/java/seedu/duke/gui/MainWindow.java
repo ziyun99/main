@@ -29,6 +29,7 @@ import javafx.util.Duration;
 import seedu.duke.Duke;
 import seedu.duke.CommandParser;
 import seedu.duke.UI;
+import seedu.duke.email.EmailTags;
 import seedu.duke.task.TaskList;
 import seedu.duke.task.TaskStorage;
 import seedu.duke.email.EmailStorage;
@@ -100,6 +101,7 @@ public class MainWindow extends AnchorPane {
         // initialize GUI with database
         updateTasksList();
         updateEmailsList();
+        updateEmailTagList();
 
         userInputHandler = new UserInputHandler(userInput, sendButton);
         setInputPrefix();
@@ -202,6 +204,7 @@ public class MainWindow extends AnchorPane {
         setInputPrefix();
         updateTasksList();
         updateEmailsList();
+        updateEmailTagList();
         if (input.contains("clear")) {
             dialogContainer.getChildren().clear();
         }
@@ -329,6 +332,10 @@ public class MainWindow extends AnchorPane {
             observableList.add(output);
         }
         tasksListView.setItems(observableList);
+    }
+
+    private void updateEmailTagList() {
+        EmailTags.updateEmailTagList(Duke.getEmailList());
     }
 
     private void updateEmailsList() {
