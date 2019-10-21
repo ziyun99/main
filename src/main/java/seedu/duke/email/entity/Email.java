@@ -132,8 +132,8 @@ public class Email {
     }
 
     /**
-     * Colors the email body with the tag of highest relevance. Also, longer expression will have a higher
-     * priority to be colored currently.
+     * Colors/Highlights the email body with the tag of highest relevance. Also, longer expression will
+     * have a higher priority to be colored currently.
      *
      * @return email body after the coloring
      */
@@ -155,7 +155,7 @@ public class Email {
             //Duke.getUI().showDebug(expression);
             Pattern colorPattern = Pattern.compile("(" + expression + ")", Pattern.CASE_INSENSITIVE);
             Matcher colorMatcher = colorPattern.matcher(output);
-            output = colorMatcher.replaceAll("<font style=\"color:red\">" + expression + "</font>");
+            output = colorMatcher.replaceAll("<span style=\"background-color: yellow\">" + expression + "</span>");
         }
         return output;
     }

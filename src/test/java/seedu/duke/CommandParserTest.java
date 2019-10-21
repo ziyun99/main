@@ -1,6 +1,5 @@
 package seedu.duke;
 
-import javafx.util.Pair;
 import org.junit.jupiter.api.Test;
 import seedu.duke.common.command.Command;
 import seedu.duke.common.command.InvalidCommand;
@@ -13,9 +12,7 @@ import seedu.duke.task.command.TaskFindCommand;
 import seedu.duke.task.command.TaskReminderCommand;
 import seedu.duke.task.command.TaskSnoozeCommand;
 import seedu.duke.task.entity.Task;
-import seedu.duke.task.TaskList;
 
-import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.time.LocalDateTime;
@@ -31,19 +28,19 @@ public class CommandParserTest {
     @Test
     public void isCommandFormatTest() {
         assertTrue(CommandParser.isCommandFormat("task deadline 123abc -by asdas"));
-        assertFalse(CommandParser.isCommandFormat("deadline 123abc -by asdas"));
         assertTrue(CommandParser.isCommandFormat("task deadline 123abc -by asdas -asd nisnds"));
         assertTrue(CommandParser.isCommandFormat("task deadline 123abc 123abc -by asdas -asd nisnds"));
         assertTrue(CommandParser.isCommandFormat("task deadline -by asdas -asd nisnds"));
         assertTrue(CommandParser.isCommandFormat("task deadline 123abc -by asdas -asd nis nds"));
         assertTrue(CommandParser.isCommandFormat("email 123abc -by asdas"));
-        assertFalse(CommandParser.isCommandFormat("task deadline 123abc -by "));
         assertTrue(CommandParser.isCommandFormat("task deadline 123abc"));
         assertTrue(CommandParser.isCommandFormat("task deadline 123abc -by asdas"));
         assertTrue(CommandParser.isCommandFormat("task ads deadline 123abc -by asdas"));
         assertTrue(CommandParser.isCommandFormat("task done 1"));
         assertTrue(CommandParser.isCommandFormat("task deadline 123 -time 11/11/1111 1111"));
         assertTrue(CommandParser.isCommandFormat("task bye"));
+        assertFalse(CommandParser.isCommandFormat("deadline 123abc -by asdas"));
+        assertFalse(CommandParser.isCommandFormat("task deadline 123abc -by "));
     }
 
     @Test

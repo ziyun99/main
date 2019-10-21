@@ -86,6 +86,7 @@ public class EmailContentParser {
 
     /**
      * Keyword List for searching.
+     * Hardcoded initial keywords relavant to SoC students, which is our target audience.
      */
     public static void initKeywordList() {
         ArrayList<KeywordPair> keywordList = new ArrayList<>();
