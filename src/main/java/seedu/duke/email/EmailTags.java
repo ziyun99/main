@@ -1,6 +1,5 @@
 package seedu.duke.email;
 
-import seedu.duke.email.EmailList;
 import seedu.duke.email.entity.Email;
 
 import java.util.ArrayList;
@@ -106,7 +105,6 @@ public class EmailTags {
 
         public SubTagMap (String subTagName, EmailList subEmailList) {
         }
-
     }
 
 }
