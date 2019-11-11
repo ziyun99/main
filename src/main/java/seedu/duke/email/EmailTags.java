@@ -52,6 +52,7 @@ public class EmailTags {
             Email email = emailList.get(index);
             updateTagMapFromEachEmail(index, email);
         }
+        System.out.println(tagMap);
         return tagMap;
     }
 
